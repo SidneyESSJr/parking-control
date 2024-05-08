@@ -11,10 +11,10 @@ export default function Header() {
           <Link className="button" to="/">
             Home
           </Link>
-          <Link className="button" to="/">
+          <Link className="button" to="cadastro">
             Cadastrar
           </Link>
-          <Link className="button" to="/">
+          <Link className="button" to="lista-de-vagas">
             Lista de vagas
           </Link>
         </nav>
