@@ -1,20 +1,14 @@
 .home {
-    height: calc(100vh - 180px);
-    width: var(--container-width);
-    margin: auto;
+  width: 75%;
+  padding: 5rem;
+  color: var(--primary-color);
 }
 
-.container {
-    width: 75%;
-    padding: 5rem;
-    color: var(--primary-color);
+.home h1 {
+  font-size: 40px;
+  margin-bottom: 12px;
 }
 
-.container h1 {
-    font-size: 40px;
-    margin-bottom: 12px;
-}
-
-.container p {
-    font-size: large;
+.home p {
+  font-size: large;
 }

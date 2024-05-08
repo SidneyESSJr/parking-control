@@ -28,6 +28,9 @@
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
   transition: font-weight 0.2s linear;
   color: var(--text-color);
+  border: none;
+  font-size: var(--gap-l);
+  cursor: pointer;
 }
 
 .button:hover {

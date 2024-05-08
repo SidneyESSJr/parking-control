@@ -1,0 +1,5 @@
+.home {
+    height: calc(100vh - 180px);
+    width: var(--container-width);
+    margin: auto;
+}

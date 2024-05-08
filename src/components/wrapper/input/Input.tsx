@@ -1,4 +1,5 @@
 import { ComponentProps } from "react";
+import styles from './input.module.css'
 
 type Input = ComponentProps<"input"> & {
   id: string;
@@ -7,7 +8,7 @@ type Input = ComponentProps<"input"> & {
 
 export default function Input({ id, label, ...rest }: Input) {
   return (
-    <div>
+    <div className={styles.container}>
       <label htmlFor={id}>{label}</label>
       <input id={id} type="text" {...rest} />
     </div>

@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: var(--gap-sm);
+    padding-block: var(--gap-s);
+    color: var(--primary-color);
+  }
+  
+  .container select {
+    width: 60%;
+    padding: var(--gap-s);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--gap-sm);
+    outline-color: var(--primary-color);
+    cursor: pointer;
+    color: var(--primary-color);
+  }
+  

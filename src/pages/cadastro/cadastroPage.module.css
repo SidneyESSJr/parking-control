@@ -1,0 +1,5 @@
+.cadastro {
+    width: var(--container-width);
+    margin: auto;
+    height: calc(100vh - 180px);
+}

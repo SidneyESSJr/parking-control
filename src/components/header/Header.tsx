@@ -6,7 +6,9 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <LogoIcon />
+        <Link to="/">
+          <LogoIcon />
+        </Link>
         <nav>
           <Link className="button" to="/">
             Home
