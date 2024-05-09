@@ -21,6 +21,7 @@ const Select = React.forwardRef(
     return (
       <div ref={ref} className={styles.container}>
         <label htmlFor={id}>{label}</label>
+          {error && <p>{error.message}</p>}
         <select id={id} {...rest} aria-invalid={error?.ok}>
           {options.map((opt, key) => (
             <option key={key} value={opt.value}>
@@ -28,7 +29,6 @@ const Select = React.forwardRef(
             </option>
           ))}
         </select>
-        {error && <p>{error.message}</p>}
       </div>
     );
   }

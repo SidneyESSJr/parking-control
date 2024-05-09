@@ -6,6 +6,12 @@
     padding-block: var(--gap-s);
     color: var(--primary-color);
   }
+
+  .container p {
+    padding-inline: var(--gap-s);
+    font-size: small;
+    color: red;
+  }
   
   .container select {
     width: 60%;
@@ -15,5 +21,6 @@
     outline-color: var(--primary-color);
     cursor: pointer;
     color: var(--primary-color);
+    font-size: var(--gap-l);
   }
   

@@ -15,8 +15,8 @@ const Input = React.forwardRef(
     return (
       <div ref={ref} className={styles.container}>
         <label htmlFor={id}>{label}</label>
-        <input id={id} type="text" {...rest} aria-invalid={error?.ok} />
         {error && <p>{error.message}</p>}
+        <input id={id} type="text" {...rest} aria-invalid={error?.ok} />
       </div>
     );
   }
