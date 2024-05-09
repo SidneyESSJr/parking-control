@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import React, { ComponentPropsWithRef, ForwardedRef } from "react";
 import styles from "./select.module.css";
 
 export type Option = {
@@ -6,21 +6,30 @@ export type Option = {
   value: string;
 };
 
-type Select = ComponentProps<"select"> & {
-  id: string;
+type Select = ComponentPropsWithRef<"select"> & {
+  id?: string;
   label: string;
   options: Option[];
 };
 
-export default function Select({ id, label, options, ...rest }: Select) {
-  return (
-    <div className={styles.container}>
-      <label htmlFor={id}>{label}</label>
-      <select id={id} {...rest}>
-        {options.map((opt) => (
-          <option value={opt.value}>{opt.name}</option>
-        ))}
-      </select>
-    </div>
-  );
-}
+const Select = React.forwardRef(
+  (
+    { id, label, options, ...rest }: Select,
+    ref: ForwardedRef<HTMLDivElement>
+  ) => {
+    return (
+      <div ref={ref} className={styles.container}>
+        <label htmlFor={id}>{label}</label>
+        <select id={id} {...rest}>
+          {options.map((opt, key) => (
+            <option key={key} value={opt.value}>
+              {opt.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  }
+);
+
+export default Select;

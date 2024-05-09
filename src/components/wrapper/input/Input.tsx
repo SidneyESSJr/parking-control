@@ -1,16 +1,20 @@
-import { ComponentProps } from "react";
-import styles from './input.module.css'
+import React, { ComponentPropsWithRef, ForwardedRef } from "react";
+import styles from "./input.module.css";
 
-type Input = ComponentProps<"input"> & {
-  id: string;
+type InputType = ComponentPropsWithRef<"input"> & {
+  id?: string;
   label: string;
 };
 
-export default function Input({ id, label, ...rest }: Input) {
-  return (
-    <div className={styles.container}>
-      <label htmlFor={id}>{label}</label>
-      <input id={id} type="text" {...rest} />
-    </div>
-  );
-}
+const Input = React.forwardRef(
+  ({ id, label, ...rest }: InputType, ref: ForwardedRef<HTMLDivElement>) => {
+    return (
+      <div ref={ref} className={styles.container}>
+        <label htmlFor={id}>{label}</label>
+        <input id={id} type="text" {...rest} />
+      </div>
+    );
+  }
+);
+
+export default Input;
