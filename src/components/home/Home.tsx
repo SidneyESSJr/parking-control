@@ -2,7 +2,7 @@ import styles from "./home.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.home}>
+    <div className={`${styles.home} animeLeft`}>
       <h1>Sistema prático para gestão de vagas de estacionamento</h1>
 
       <p>

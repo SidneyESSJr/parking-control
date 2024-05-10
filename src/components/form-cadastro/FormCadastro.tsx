@@ -1,22 +1,55 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import z from "zod";
 import { getApt, getBloco, getVagas } from "../../util/funcoes";
-import { FormData } from "../../util/types";
 import schema from "../../util/validations";
 import Input from "../wrapper/input/Input";
-import Select from "../wrapper/select/Select";
+import Select, { Option } from "../wrapper/select/Select";
 import styles from "./formCadastro.module.css";
+import { useEffect, useState } from "react";
+
+type FormData = z.infer<typeof schema>;
 
 export default function FormCadastro() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
+    reset,
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
+  const [vagas, setVagas] = useState(getVagas());
+  const [vagasCadastradas, setVagasCadastradas] = useState<FormData[]>([]);
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  function verificaVagasDisponiveis() {
+    const vagasOcupadas = vagasCadastradas.map((vagCad) => vagCad.vaga);
+    setVagas(
+      vagas.filter((vaga) => {
+        return !vagasOcupadas.includes(vaga);
+      })
+    );
+  }
+
+  useEffect(() => {
+    if (vagasCadastradas.length > 0) {
+      window.localStorage.setItem("vagas", JSON.stringify(vagasCadastradas));
+
+      verificaVagasDisponiveis()
+    }
+  }, [vagasCadastradas]);
+
+  useEffect(() => {
+    const vagas = window.localStorage.getItem("vagas");
+    if (vagas) {
+      setVagasCadastradas(JSON.parse(vagas));
+    }
+  }, []);
+
+  const onSubmit = handleSubmit((data) => {
+    setVagasCadastradas([...vagasCadastradas, data]);
+    reset();
+  });
 
   return (
     <form className={styles.form} onSubmit={onSubmit}>
@@ -52,7 +85,7 @@ export default function FormCadastro() {
       <Select
         {...register("vaga")}
         label="Número da vaga"
-        options={getVagas()}
+        options={vagas}
         error={{
           ok: errors.vaga ? true : false,
           message: errors.vaga?.message,
@@ -84,7 +117,7 @@ export default function FormCadastro() {
         }}
       />
 
-      <button className="button" type="submit">
+      <button disabled={isSubmitting} className="button" type="submit">
         Cadastrar
       </button>
     </form>

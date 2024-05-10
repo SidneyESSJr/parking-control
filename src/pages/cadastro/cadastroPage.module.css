@@ -1,6 +1,29 @@
 .cadastro {
-    width: var(--container-width);
+  width: var(--container-width);
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: baseline;
+  column-gap: var(--gap-xl);
+  flex-grow: inherit;
+}
+
+.cadastro h1 {
+  text-align: center;
+  width: 100%;
+  padding-block: var(--gap-s);
+}
+
+.cadastro img {
+  flex-grow: 1;
+  width: 45%;
+  padding: var(--gap-xl);
+}
+
+@media (min-height: 912px) {
+  .cadastro {
     height: calc(100vh - 180px);
-    margin: auto;
-    overflow: auto;
+  }
 }

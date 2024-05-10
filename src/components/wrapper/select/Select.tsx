@@ -10,7 +10,7 @@ type Select = ComponentPropsWithRef<"select"> & {
   id?: string;
   error?: { ok: boolean; message?: string };
   label: string;
-  options: Option[];
+  options: string[];
 };
 
 const Select = React.forwardRef(
@@ -21,11 +21,11 @@ const Select = React.forwardRef(
     return (
       <div ref={ref} className={styles.container}>
         <label htmlFor={id}>{label}</label>
-          {error && <p>{error.message}</p>}
+        {error && <p>{error.message}</p>}
         <select id={id} {...rest} aria-invalid={error?.ok}>
           {options.map((opt, key) => (
-            <option key={key} value={opt.value}>
-              {opt.name}
+            <option key={key} value={opt}>
+              {opt}
             </option>
           ))}
         </select>
