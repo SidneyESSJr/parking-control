@@ -4,3 +4,7 @@ form {
   grid-template-rows: 1fr;
   padding: var(--gap-l);
 }
+
+.selectContainer {
+  width: 60%;
+}

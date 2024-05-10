@@ -8,7 +8,7 @@ import Select, { Option } from "../wrapper/select/Select";
 import styles from "./formCadastro.module.css";
 import { useEffect, useState } from "react";
 
-type FormData = z.infer<typeof schema>;
+export type FormData = z.infer<typeof schema>;
 
 export default function FormCadastro() {
   const {
@@ -35,7 +35,7 @@ export default function FormCadastro() {
     if (vagasCadastradas.length > 0) {
       window.localStorage.setItem("vagas", JSON.stringify(vagasCadastradas));
 
-      verificaVagasDisponiveis()
+      verificaVagasDisponiveis();
     }
   }, [vagasCadastradas]);
 
@@ -61,37 +61,37 @@ export default function FormCadastro() {
           message: errors.nome?.message,
         }}
       />
+      <div className={styles.selectContainer}>
+        <Select
+          {...register("apto")}
+          label="Número do apartamento"
+          options={getApt()}
+          error={{
+            ok: errors.apto ? true : false,
+            message: errors.apto?.message,
+          }}
+        />
 
-      <Select
-        {...register("apto")}
-        label="Número do apartamento"
-        options={getApt()}
-        error={{
-          ok: errors.apto ? true : false,
-          message: errors.apto?.message,
-        }}
-      />
+        <Select
+          {...register("bloco")}
+          label="Bloco do apartamento"
+          options={getBloco()}
+          error={{
+            ok: errors.bloco ? true : false,
+            message: errors.bloco?.message,
+          }}
+        />
 
-      <Select
-        {...register("bloco")}
-        label="Bloco do apartamento"
-        options={getBloco()}
-        error={{
-          ok: errors.bloco ? true : false,
-          message: errors.bloco?.message,
-        }}
-      />
-
-      <Select
-        {...register("vaga")}
-        label="Número da vaga"
-        options={vagas}
-        error={{
-          ok: errors.vaga ? true : false,
-          message: errors.vaga?.message,
-        }}
-      />
-
+        <Select
+          {...register("vaga")}
+          label="Número da vaga"
+          options={vagas}
+          error={{
+            ok: errors.vaga ? true : false,
+            message: errors.vaga?.message,
+          }}
+        />
+      </div>
       <Input
         {...register("modelo")}
         label="Modelo do veículo"
