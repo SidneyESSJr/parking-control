@@ -1,5 +1,5 @@
-import ListaDeVagas from "../../components/seletor-de-vagas/SeletorDeVagas";
-import styles from './listaDeVagasPage.module.css'
+import ListaDeVagas from "../../components/lista-de-vagas/ListaDeVagas";
+import styles from "./listaDeVagasPage.module.css";
 
 export default function ListaDeVagasPage() {
   return (

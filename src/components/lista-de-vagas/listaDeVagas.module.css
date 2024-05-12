@@ -1,0 +1,21 @@
+.lista {
+  width: 100%;
+  padding: var(--gap-l);
+}
+
+.lista ul {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-m);
+}
+
+.lista li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--gap-m);
+  background-color: var(--text-color);
+  color: var(--primary-color);
+  border-radius: var(--gap-sm);
+}

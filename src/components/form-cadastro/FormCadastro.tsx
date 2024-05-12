@@ -1,12 +1,17 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { useForm } from "react-hook-form";
-import z from "zod";
+import z, { number } from "zod";
+import {
+  getCadastroState,
+  setCadastroState,
+  subscribe,
+} from "../../store/cadastroStore";
 import { getApt, getBloco, getVagas } from "../../util/funcoes";
 import schema from "../../util/validations";
 import Input from "../wrapper/input/Input";
-import Select, { Option } from "../wrapper/select/Select";
+import Select from "../wrapper/select/Select";
 import styles from "./formCadastro.module.css";
-import { useEffect, useState } from "react";
 
 export type FormData = z.infer<typeof schema>;
 
@@ -19,11 +24,13 @@ export default function FormCadastro() {
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
+
   const [vagas, setVagas] = useState(getVagas());
-  const [vagasCadastradas, setVagasCadastradas] = useState<FormData[]>([]);
+
+  const cadastros = useSyncExternalStore(subscribe, getCadastroState);
 
   function verificaVagasDisponiveis() {
-    const vagasOcupadas = vagasCadastradas.map((vagCad) => vagCad.vaga);
+    const vagasOcupadas = cadastros.map((cad) => cad.vaga);
     setVagas(
       vagas.filter((vaga) => {
         return !vagasOcupadas.includes(vaga);
@@ -32,22 +39,11 @@ export default function FormCadastro() {
   }
 
   useEffect(() => {
-    if (vagasCadastradas.length > 0) {
-      window.localStorage.setItem("vagas", JSON.stringify(vagasCadastradas));
-
-      verificaVagasDisponiveis();
-    }
-  }, [vagasCadastradas]);
-
-  useEffect(() => {
-    const vagas = window.localStorage.getItem("vagas");
-    if (vagas) {
-      setVagasCadastradas(JSON.parse(vagas));
-    }
-  }, []);
+    verificaVagasDisponiveis();
+  }, [cadastros]);
 
   const onSubmit = handleSubmit((data) => {
-    setVagasCadastradas([...vagasCadastradas, data]);
+    setCadastroState([...cadastros, data]);
     reset();
   });
 

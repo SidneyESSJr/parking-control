@@ -2,8 +2,10 @@ import styles from "./home.module.css";
 
 export default function Home() {
   return (
-    <div className={`${styles.home} animeLeft`}>
-      <h1>Sistema prático para gestão de vagas de estacionamento</h1>
+    <div className={styles.home}>
+      <h1 className="animeLeft">
+        Sistema prático para gestão de vagas de estacionamento
+      </h1>
 
       <p>
         Defina qual vaga gostaria de ocupar e cadastre seus dados, pronto agora
