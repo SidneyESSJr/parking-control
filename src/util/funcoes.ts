@@ -1,5 +1,3 @@
-import { Option } from "../components/wrapper/select/Select";
-
 export function getApt() {
   const aptos = [
     "101",

@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { useForm } from "react-hook-form";
-import z, { number } from "zod";
+import z from "zod";
 import {
   getCadastroState,
   setCadastroState,
