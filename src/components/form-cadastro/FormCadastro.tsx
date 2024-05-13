@@ -25,14 +25,14 @@ export default function FormCadastro() {
     resolver: zodResolver(schema),
   });
 
-  const [vagas, setVagas] = useState(getVagas());
+  const [vagas, setVagas] = useState([]);
 
   const cadastros = useSyncExternalStore(subscribe, getCadastroState);
 
   function verificaVagasDisponiveis() {
     const vagasOcupadas = cadastros.map((cad) => cad.vaga);
     setVagas(
-      vagas.filter((vaga) => {
+      getVagas().filter((vaga) => {
         return !vagasOcupadas.includes(vaga);
       })
     );
