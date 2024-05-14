@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { FormData } from "../form-cadastro/FormCadastro.tsx";
-import styles from "./cadastroModal.module.css";
+import styles from "./CadastroModal.module.css";
 
 export default function CadastroModal({
   openModal,
