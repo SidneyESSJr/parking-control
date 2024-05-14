@@ -24,7 +24,7 @@ export default function FormCadastro() {
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
-
+  let isLoaded = false;
   const [vagas, setVagas] = useState([]);
 
   const cadastros = useSyncExternalStore(subscribe, getCadastroState);
@@ -40,6 +40,7 @@ export default function FormCadastro() {
 
   useEffect(() => {
     verificaVagasDisponiveis();
+    isLoaded = true;
   }, [cadastros]);
 
   const onSubmit = handleSubmit((data) => {
@@ -50,6 +51,7 @@ export default function FormCadastro() {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
       <Input
+        disabled={isLoaded}
         {...register("nome")}
         label="Nome do morador"
         error={{
@@ -89,6 +91,7 @@ export default function FormCadastro() {
         />
       </div>
       <Input
+        disabled={isLoaded}
         {...register("modelo")}
         label="Modelo do veículo"
         error={{
@@ -97,6 +100,7 @@ export default function FormCadastro() {
         }}
       />
       <Input
+        disabled={isLoaded}
         {...register("placa")}
         label="Placa do veículo"
         error={{
@@ -105,6 +109,7 @@ export default function FormCadastro() {
         }}
       />
       <Input
+        disabled={isLoaded}
         {...register("cor")}
         label="Cor do veículo"
         error={{
