@@ -1,6 +1,8 @@
 .footer {
   width: 100%;
   background-color: var(--primary-color);
+  z-index: 100;
+position: absolute;
 }
 
 .container {

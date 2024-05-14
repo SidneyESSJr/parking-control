@@ -25,7 +25,7 @@ export default function FormCadastro() {
     resolver: zodResolver(schema),
   });
   let isLoaded = false;
-  const [vagas, setVagas] = useState([]);
+  const [vagas, setVagas] = useState<string[]>(["0"]);
 
   const cadastros = useSyncExternalStore(subscribe, getCadastroState);
 
@@ -74,6 +74,7 @@ export default function FormCadastro() {
           {...register("bloco")}
           label="Bloco do apartamento"
           options={getBloco()}
+          defaultValue=""
           error={{
             ok: errors.bloco ? true : false,
             message: errors.bloco?.message,

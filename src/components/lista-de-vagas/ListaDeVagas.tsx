@@ -1,14 +1,16 @@
-import { useSyncExternalStore } from "react";
+import { useState, useSyncExternalStore } from "react";
+import { Link } from "react-router-dom";
 import {
   getCadastroState,
   setCadastroState,
   subscribe,
-} from "../../store/cadastroStore";
+} from "../../store/cadastroStore.ts";
+import CadastroModal from "../modal/CadastroModal";
 import styles from "./listaDeVagas.module.css";
-import { Link } from "react-router-dom";
 
 export default function ListaDeVagas() {
   const cadastros = useSyncExternalStore(subscribe, getCadastroState);
+  const [open, setOpen] = useState(false);
 
   function removerCadastro(id: string) {
     setCadastroState(cadastros.filter((cadastro) => cadastro.vaga !== id));
@@ -17,12 +19,14 @@ export default function ListaDeVagas() {
   return (
     <section className={styles.lista}>
       {cadastros.length < 1 ? (
-        <Link to='/cadastro' className="button">Nenhuma vaga cadastrada!</Link>
+        <Link to="/cadastro" className="button">
+          Nenhuma vaga cadastrada!
+        </Link>
       ) : (
         <ul>
           {cadastros.map((cadastro) => (
             <li>
-              <div>
+              <div className={styles.dados} onClick={() => setOpen(!open)}>
                 <p>
                   <b>Vaga:</b> {cadastro.vaga}
                 </p>
@@ -39,6 +43,7 @@ export default function ListaDeVagas() {
               >
                 Remover
               </button>
+              <CadastroModal openModal={open} data={cadastro} />
             </li>
           ))}
         </ul>
