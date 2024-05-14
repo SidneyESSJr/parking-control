@@ -24,9 +24,9 @@ export default function ListaDeVagas() {
         </Link>
       ) : (
         <ul>
-          {cadastros.map((cadastro) => (
-            <li>
-              <div className={styles.dados} onClick={() => setOpen(!open)}>
+          {cadastros.map((cadastro, key) => (
+            <li key={key}>
+              <div className={styles.dados} onClick={() => setOpen(true)}>
                 <p>
                   <b>Vaga:</b> {cadastro.vaga}
                 </p>
@@ -43,6 +43,7 @@ export default function ListaDeVagas() {
               >
                 Remover
               </button>
+
               <CadastroModal openModal={open} data={cadastro} />
             </li>
           ))}

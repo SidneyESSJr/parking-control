@@ -75,7 +75,6 @@ export default function FormCadastro() {
           {...register("bloco")}
           label="Bloco do apartamento"
           options={getBloco()}
-          defaultValue=""
           error={{
             ok: errors.bloco ? true : false,
             message: errors.bloco?.message,

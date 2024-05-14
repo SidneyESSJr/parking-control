@@ -1,5 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import { FormData } from "../form-cadastro/FormCadastro.tsx";
-import styles from "./CadastroModal.module.css";
+import styles from "./cadastroModal.module.css";
 
 export default function CadastroModal({
   openModal,
@@ -8,8 +9,13 @@ export default function CadastroModal({
   openModal: boolean;
   data: FormData;
 }) {
+  const navigate = useNavigate();
+
   function handleOutsideClick(event: React.MouseEvent<HTMLElement>) {
-    if (event.target === event.currentTarget) location.reload();
+    if (event.target === event.currentTarget) {
+      navigate("/");
+      navigate(-1);
+    }
   }
 
   if (!data) {
