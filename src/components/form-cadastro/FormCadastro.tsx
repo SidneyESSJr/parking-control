@@ -46,6 +46,7 @@ export default function FormCadastro() {
   const onSubmit = handleSubmit((data) => {
     setCadastroState([...cadastros, data]);
     reset();
+    window.alert("Cadastro realizado com sucesso!");
   });
 
   return (
