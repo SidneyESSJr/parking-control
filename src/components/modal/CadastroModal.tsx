@@ -14,7 +14,7 @@ export default function CadastroModal({
   function handleOutsideClick(event: React.MouseEvent<HTMLElement>) {
     if (event.target === event.currentTarget) {
       navigate("/");
-       navigate(-1);
+      navigate(-1);
     }
   }
 
