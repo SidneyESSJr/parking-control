@@ -40,6 +40,11 @@
   }
 }
 
+@media screen and (orientation: portrait) {
+  .container {
+    flex-direction: column-reverse;
+  }
+}
 
 @media (max-width: 768px) {
   .container {
