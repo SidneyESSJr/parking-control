@@ -28,7 +28,7 @@
   min-width: 320px;
 }
 
-@media (min-height: 3000px) and (orientation: portrait) {
+@media (min-height: 1900px) and (orientation: portrait) {
   .cadastro {
     height: calc(100vh - 240px);
   }
