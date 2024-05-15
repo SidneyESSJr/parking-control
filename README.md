@@ -1,30 +1,40 @@
-# React + TypeScript + Vite
+# Parking Control
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+🚩 Projeto implementado com React + Vite e o superset Typescript, desenvolvido como demanda do curso de Analise e desenvolvimento na UC Desenvolvimento WEB do UniSENAI
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![App](https://github.com/SidneyESSJr/parking-control/assets/52473242/d44d15c6-a058-4612-a72c-58334608c33d)
 
-## Expanding the ESLint configuration
+🚀 Deploy: https://parking-control.vercel.app/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+🪛 Funcionalidades
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- Cadastro de vagas - https://parking-control.vercel.app/cadastro
+- Visualização e remoção de cadastro - https://parking-control.vercel.app/lista-de-vagas
+  
+
+:computer: Bibliotecas externas
+
+- Roteamento - https://reactrouter.com/
+- Gerenciamento de formulario - https://react-hook-form.com/
+- Validação - https://zod.dev/
+  
+
+🔧 Build do projeto
+
+```sql
+#Clone do repositório
+$ git clone https://github.com/SidneyESSJr/parking-control.git
+
+#Acessando o projeto
+$ cd parking-control
+
+#Intalando dependências
+$ npm i
+
+#Executando a aplicação
+$ npm run dev
+
+Para visualizar o projeto no browser basta acessar - http://localhost:5173
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
