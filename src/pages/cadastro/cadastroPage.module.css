@@ -28,6 +28,13 @@
   min-width: 320px;
 }
 
+.home {
+  height: calc(100vh - 180px);
+  width: var(--container-width);
+  margin: auto;
+}
+
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column-reverse;
