@@ -1,5 +1,12 @@
-.home {
-    height: calc(100vh - 180px);
-    width: var(--container-width);
-    margin: auto;
-}
+
+@media (min-height: 420px) and (orientation: portrait) {
+    .home {
+      height: calc(100vh - 180px);
+    }
+  }
+  
+  @media (min-height: 500px) and (orientation: landscape) {
+    .home {
+      height: calc(100vh - 180px);
+    }
+  }
