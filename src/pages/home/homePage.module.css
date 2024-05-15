@@ -1,3 +1,8 @@
+.home {
+  width: var(--container-width);
+  margin: auto;
+}
+
 
 @media (min-height: 420px) and (orientation: portrait) {
     .home {

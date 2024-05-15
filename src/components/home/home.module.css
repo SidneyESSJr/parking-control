@@ -15,7 +15,7 @@
 
 @media (max-width: 768px) {
   .home {
-    width: 100%;
+    width: 75%;
     padding: 3rem;
   }
 }
