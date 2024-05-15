@@ -6,9 +6,8 @@
   left: 0px;
   background: rgba(0, 0, 0, 0.5);
   z-index: 100;
-  padding: 2rem 4rem;
   display: flex;
-  padding-top: 10%;
+  padding-top: 10rem;
 }
 
 .content {
@@ -27,4 +26,10 @@
   display: flex;
   flex-direction: column;
   row-gap: var(--gap-sm);
+}
+
+@media (max-width: 375px) {
+  .content {
+    padding: 3rem 2rem;
+  }
 }

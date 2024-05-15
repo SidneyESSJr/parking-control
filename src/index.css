@@ -58,3 +58,9 @@
     transform: initial;
   }
 }
+
+@media (max-width: 1024px) {
+  :root {
+    --container-width: 90%;
+  }
+}

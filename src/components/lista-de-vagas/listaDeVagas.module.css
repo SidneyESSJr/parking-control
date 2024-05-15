@@ -28,3 +28,9 @@
 .modal {
   display: none;
 }
+
+@media (max-width: 630px) {
+  .lista ul {
+    grid-template-columns: 1fr;
+  }
+}

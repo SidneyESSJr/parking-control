@@ -22,3 +22,9 @@
     height: calc(100vh - 180px);
   }
 }
+
+@media (max-width: 425px) {
+  .lista h1 {
+    font-size: 30px;
+  }
+}

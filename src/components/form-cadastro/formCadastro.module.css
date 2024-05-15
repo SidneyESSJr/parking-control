@@ -1,5 +1,5 @@
 form {
-  width: 50%;
+  width: 90%;
   display: grid;
   grid-template-rows: 1fr;
   padding: var(--gap-l);
@@ -7,4 +7,12 @@ form {
 
 .selectContainer {
   width: 60%;
+}
+
+
+@media (max-width: 375px) {
+  form {
+    padding: 1rem 1px ;
+    font-size: 14px;
+  }
 }

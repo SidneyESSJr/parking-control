@@ -12,3 +12,23 @@
 .home p {
   font-size: large;
 }
+
+@media (max-width: 768px) {
+  .home {
+    width: 100%;
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .home {
+    padding: 3rem 2rem;
+  }
+  .home h1 {
+    font-size: 30px;
+  }
+
+  .home p {
+    font-size: medium;
+  }
+}
