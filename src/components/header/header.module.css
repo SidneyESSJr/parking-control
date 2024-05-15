@@ -4,7 +4,7 @@
 }
 
 .container {
-  height: 100px;
+  height: 10rem;
   width: var(--container-width);
   margin: auto;
   display: flex;
@@ -16,7 +16,7 @@
 .container svg {
   background-color: var(--text-color);
   border-radius: 50%;
-  padding: var(--gap-m);
+  padding: var(--gap-s);
 }
 
 .container nav {
@@ -27,7 +27,6 @@
 @media (max-width: 500px) {
   .container {
     justify-content: space-around;
-    height: 150px;
     column-gap: var(--gap-xl);
   }
 

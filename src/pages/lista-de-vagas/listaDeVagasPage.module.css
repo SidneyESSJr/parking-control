@@ -8,7 +8,7 @@
   align-content: baseline;
   column-gap: var(--gap-xl);
   flex: 1;
-  height: calc(100vh - 180px);
+  height: calc(100vh - 240px);
   overflow: auto;
 }
 
@@ -20,7 +20,7 @@
 
 @media (min-height: 912px) {
   .lista {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 240px);
   }
 }
 

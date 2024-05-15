@@ -1,12 +1,12 @@
 
 @media (min-height: 420px) and (orientation: portrait) {
     .home {
-      height: calc(100vh - 180px);
+      height: calc(100vh - 240px);
     }
   }
   
   @media (min-height: 500px) and (orientation: landscape) {
     .home {
-      height: calc(100vh - 180px);
+      height: calc(100vh - 240px);
     }
   }
