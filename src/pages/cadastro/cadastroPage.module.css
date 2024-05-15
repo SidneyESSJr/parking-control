@@ -28,7 +28,13 @@
   min-width: 320px;
 }
 
-@media (min-height: 912px) {
+@media (min-height: 1170px) and (orientation: portrait) {
+  .cadastro {
+    height: calc(100vh - 180px);
+  }
+}
+
+@media (min-height: 890px) and (orientation: landscape) {
   .cadastro {
     height: calc(100vh - 180px);
   }

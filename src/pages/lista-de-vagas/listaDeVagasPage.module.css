@@ -9,6 +9,7 @@
   column-gap: var(--gap-xl);
   flex: 1;
   height: calc(100vh - 180px);
+  overflow: auto;
 }
 
 .lista h1 {
